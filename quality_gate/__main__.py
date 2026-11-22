@@ -16,14 +16,12 @@ def main() -> int:
         default=DEFAULT_THRESHOLD,
         help=f"review threshold for this batch, from 0 to 1 (default: {DEFAULT_THRESHOLD:.2f})",
     )
-    parser.add_argument("--mode", choices=("auto", "metadata_only", "files"), default="auto")
     args = parser.parse_args()
     try:
         result = validate_batch(
             args.batch,
             args.taxonomy,
             confidence_threshold=args.confidence_threshold,
-            mode=args.mode,
         )
     except (OSError, ValueError) as error:
         print(f"Batch input error: {error}", file=sys.stderr)

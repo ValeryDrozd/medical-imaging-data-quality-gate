@@ -10,6 +10,6 @@ I built and reviewed the MVP in Codex desktop with the `gpt-6.2-sol` model. I us
 
 ## Mistake and verification
 
-I initially relied on Pillow's `verify()` and `load()` to validate the entire PNG. A sweep of 68 truncated versions of a blank test image found four that passed when their declared sizes and hashes matched the remaining bytes. I added an explicit final-chunk and checksum check, then confirmed that all 68 truncated versions failed.
+I read the brief’s mention of missing and corrupted images as a requirement to inspect PNG bytes. I added automatic image-file detection, an optional file mode, and a Pillow dependency. During a manual code review, the user pointed out that the project contained no PNGs. I rechecked the brief and the supplied inputs. The deliverable was a gate for the synthetic batch and taxonomy JSON. The extra mode added code and tests outside that scope, and my proposed PNG performance improvement would have had no effect on the demo batch.
 
-Ruff and 27 pytest tests passed. The Docker MCP tool returned 36 PASS, 13 FAIL and 1 NEEDS_REVIEW for `IMG-0009` when called from this Codex session. The 0.38 override was verified separately and moved `IMG-0009` to PASS for that call.
+I removed the file mode, detection, decoding, and Pillow. The gate still validates declared image references, sizes, and hashes and reports `metadata_only`. Docker Compose reproduced the original report byte for byte with 36 PASS, 13 FAIL, and `IMG-0009` as the only record needing review. Ruff and all 30 tests passed.

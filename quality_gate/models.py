@@ -4,8 +4,6 @@ from typing import Annotated, Literal
 from pydantic import BaseModel, ConfigDict, Field, JsonValue
 
 Status = Literal["PASS", "FAIL", "NEEDS_REVIEW"]
-Mode = Literal["metadata_only", "files"]
-RequestedMode = Literal["auto", "metadata_only", "files"]
 ConfidenceThreshold = Annotated[
     float,
     Field(
@@ -45,7 +43,6 @@ class Taxonomy(BaseModel):
 
 class RunOptions(BaseModel):
     confidence_threshold: ConfidenceThreshold = DEFAULT_THRESHOLD
-    mode: RequestedMode = "auto"
 
 
 class Reason(BaseModel):
@@ -72,7 +69,7 @@ class BatchSummary(BaseModel):
 class BatchResult(BaseModel):
     batch_id: str
     taxonomy_version: str
-    mode: Mode
+    mode: Literal["metadata_only"]
     confidence_threshold: float
     summary: BatchSummary
     records: list[RecordResult]
