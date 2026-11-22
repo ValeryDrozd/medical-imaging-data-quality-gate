@@ -1,0 +1,1032 @@
+{
+  "batch_id": "BATCH-2026-11-02-A",
+  "source": "Synthetic vendor delivery for the FDE challenge. Not real patient data.",
+  "taxonomy_version": "1.2",
+  "record_count": 50,
+  "records": [
+    {
+      "record_id": "IMG-0001",
+      "image_file": "images/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T08:07:00Z",
+      "annotations": [
+        {
+          "label": "cardiomegaly",
+          "bbox": [
+            907,
+            255,
+            92,
+            137
+          ],
+          "confidence": 0.97
+        },
+        {
+          "label": "mass",
+          "bbox": [
+            445,
+            362,
+            69,
+            234
+          ],
+          "confidence": 0.69
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0002",
+      "image_file": "images/IMG-0002.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 784277,
+      "sha256_expected": "bcbf3a3ccddf65536ae473debdac0ec8006e75a27ffa6e2aa05c5953a889dc42",
+      "sha256_received": "bcbf3a3ccddf65536ae473debdac0ec8006e75a27ffa6e2aa05c5953a889dc42",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T08:14:00Z",
+      "annotations": [
+        {
+          "label": "consolidation",
+          "bbox": [
+            895,
+            51,
+            158,
+            292
+          ],
+          "confidence": 0.81
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0003",
+      "image_file": "images/IMG-0003.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 1772459,
+      "sha256_expected": "97871845fb2c82bb297f96a1df1db10bc11eb9d876db0a2c1177a75102566d77",
+      "sha256_received": "97871845fb2c82bb297f96a1df1db10bc11eb9d876db0a2c1177a75102566d77",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T08:21:00Z",
+      "annotations": [
+        {
+          "label": "effusion",
+          "bbox": [
+            1107,
+            33,
+            383,
+            101
+          ],
+          "confidence": 0.66
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0004",
+      "image_file": "images/IMG-0004.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 1567324,
+      "sha256_expected": "211bf451fcbe12f1195a5f7dbb376dc1c0aa7469d6faa445484f3af3af5ac7e1",
+      "sha256_received": "211bf451fcbe12f1195a5f7dbb376dc1c0aa7469d6faa445484f3af3af5ac7e1",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T08:28:00Z",
+      "annotations": [
+        {
+          "label": "nodule",
+          "bbox": [
+            964,
+            200,
+            180,
+            150
+          ],
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0005",
+      "image_file": "images/IMG-0005.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 727343,
+      "sha256_expected": "90e89aab30e23c1f6487df9c8f2ed973f8ef1a8544564de3d18f58fddcecbe5e",
+      "sha256_received": "90e89aab30e23c1f6487df9c8f2ed973f8ef1a8544564de3d18f58fddcecbe5e",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T08:35:00Z",
+      "annotations": [
+        {
+          "label": "cardiomegaly",
+          "bbox": [
+            673,
+            573,
+            57,
+            91
+          ],
+          "confidence": 0.93
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0006",
+      "image_file": "images/IMG-0006.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 1415382,
+      "sha256_expected": "ef1d372269bf60cc09a1cddd506bfead964ca9cf46c82552ad4b0c8e4c3c2299",
+      "sha256_received": "ef1d372269bf60cc09a1cddd506bfead964ca9cf46c82552ad4b0c8e4c3c2299",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T08:42:00Z",
+      "annotations": [
+        {
+          "label": "mass",
+          "bbox": [
+            576,
+            450,
+            251,
+            174
+          ],
+          "confidence": 0.89
+        },
+        {
+          "label": "cardiomegaly",
+          "bbox": [
+            7,
+            255,
+            373,
+            106
+          ],
+          "confidence": 0.83
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0007",
+      "image_file": "images/IMG-0007.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 999621,
+      "sha256_expected": "c78271175cfead375b58f68ed913573fc5e60bc280637654032f863a27642085",
+      "sha256_received": "c78271175cfead375b58f68ed913573fc5e60bc280637654032f863a27642085",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T08:49:00Z",
+      "annotations": [
+        {
+          "label": "efusion",
+          "bbox": [
+            86,
+            879,
+            274,
+            283
+          ],
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0008",
+      "image_file": "images/IMG-0008.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 2750113,
+      "sha256_expected": "288914f671b3339be5b15b14fe725ab364b360a53e85a003777b1a27089d61ba",
+      "sha256_received": "288914f671b3339be5b15b14fe725ab364b360a53e85a003777b1a27089d61ba",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T08:56:00Z",
+      "annotations": []
+    },
+    {
+      "record_id": "IMG-0009",
+      "image_file": "images/IMG-0009.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 1124730,
+      "sha256_expected": "fda20f4a141986a5ff823c5fa958cadbd68718f61c01b5cfa2fdf995ba70defe",
+      "sha256_received": "fda20f4a141986a5ff823c5fa958cadbd68718f61c01b5cfa2fdf995ba70defe",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T09:03:00Z",
+      "annotations": [
+        {
+          "label": "mass",
+          "bbox": [
+            241,
+            694,
+            73,
+            160
+          ],
+          "confidence": 0.38
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0010",
+      "image_file": "images/IMG-0010.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 1443048,
+      "sha256_expected": "94c0c567ee812771be89a2501528d113b63c613e0215671766a9261108ae3f6f",
+      "sha256_received": "94c0c567ee812771be89a2501528d113b63c613e0215671766a9261108ae3f6f",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T09:10:00Z",
+      "annotations": [
+        {
+          "label": "pneumothorax",
+          "bbox": [
+            1380,
+            297,
+            91,
+            79
+          ],
+          "confidence": 0.94
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0011",
+      "image_file": "images/IMG-0011.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 1377118,
+      "sha256_expected": "3f7043788c9b83b7fd0d305634d82a71843fbaf820e8da7276a719eecd682d65",
+      "sha256_received": "3f7043788c9b83b7fd0d305634d82a71843fbaf820e8da7276a719eecd682d65",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T09:17:00Z",
+      "annotations": [
+        {
+          "label": "mass",
+          "bbox": [
+            -35,
+            410,
+            160,
+            140
+          ],
+          "confidence": 0.8
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0012",
+      "image_file": "images/IMG-0012.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 932503,
+      "sha256_expected": "f8dbf94cb2e831f1e79acde7d43a45478b4373275c392c7e47899fbced7fcab3",
+      "sha256_received": "f8dbf94cb2e831f1e79acde7d43a45478b4373275c392c7e47899fbced7fcab3",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T09:24:00Z",
+      "annotations": []
+    },
+    {
+      "record_id": "IMG-0013",
+      "image_file": "images/IMG-0013.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 1837619,
+      "sha256_expected": "3c7bb6e475d4fb8f6f5200b9c2ee546470af79ff8a4669ec03be105e4d9332c5",
+      "sha256_received": "3c7bb6e475d4fb8f6f5200b9c2ee546470af79ff8a4669ec03be105e4d9332c5",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T09:31:00Z",
+      "annotations": []
+    },
+    {
+      "record_id": "IMG-0014",
+      "image_file": "images/IMG-0014.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 597367,
+      "sha256_expected": "7c84e04bb1863d486fe1a942581f03a2e1294d0436b2542e3a052ab8bb14ad4b",
+      "sha256_received": "7c84e04bb1863d486fe1a942581f03a2e1294d0436b2542e3a052ab8bb14ad4b",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T09:38:00Z",
+      "annotations": [
+        {
+          "label": "effusion",
+          "bbox": [
+            1091,
+            1330,
+            333,
+            196
+          ],
+          "confidence": 0.83
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0015",
+      "image_file": null,
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": null,
+      "sha256_expected": "7f8679d579119bfab1490fe8bbd5e6efa8d85b432bb0e0d127ce6b59378dd76b",
+      "sha256_received": "7f8679d579119bfab1490fe8bbd5e6efa8d85b432bb0e0d127ce6b59378dd76b",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T09:45:00Z",
+      "annotations": []
+    },
+    {
+      "record_id": "IMG-0016",
+      "image_file": "images/IMG-0016.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 1297521,
+      "sha256_expected": "444cf131eb0c1cbebfc8c44da7b4a0c111edc8e7144f83bf32d18c48b2da2e22",
+      "sha256_received": "444cf131eb0c1cbebfc8c44da7b4a0c111edc8e7144f83bf32d18c48b2da2e22",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T09:52:00Z",
+      "annotations": []
+    },
+    {
+      "record_id": "IMG-0017",
+      "image_file": "images/IMG-0017.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 1744927,
+      "sha256_expected": "fcf477a8a0d9acf69e773ab1f2cd4f0365dc1b7917f9051d4f03888b083b08c8",
+      "sha256_received": "fcf477a8a0d9acf69e773ab1f2cd4f0365dc1b7917f9051d4f03888b083b08c8",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T09:59:00Z",
+      "annotations": [
+        {
+          "label": "effusion",
+          "bbox": [
+            1322,
+            715,
+            187,
+            368
+          ],
+          "confidence": 0.81
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0018",
+      "image_file": "images/IMG-0018.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2797853,
+      "sha256_expected": "5b6cb67e81c7e6cd74b34f279057f9473cf68fb3d7843372a2767d1abcf59c26",
+      "sha256_received": "5b6cb67e81c7e6cd74b34f279057f9473cf68fb3d7843372a2767d1abcf59c26",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T10:06:00Z",
+      "annotations": []
+    },
+    {
+      "record_id": "IMG-0019",
+      "image_file": "images/IMG-0019.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 563229,
+      "sha256_expected": "5517bc14568b4dd773369f9441da1f61d191a5ae5dac75fdfe88a98704933f68",
+      "sha256_received": "5517bc14568b4dd773369f9441da1f61d191a5ae5dac75fdfe88a98704933f68",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T10:13:00Z",
+      "annotations": [
+        {
+          "label": "fracture",
+          "bbox": [
+            1516,
+            328,
+            309,
+            449
+          ],
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0020",
+      "image_file": "images/IMG-0020.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 2447655,
+      "sha256_expected": "53da8bb3ede53f4013217025a2ac6fac78dd5bc8a307d7d2e8801e13309c3584",
+      "sha256_received": "53da8bb3ede53f4013217025a2ac6fac78dd5bc8a307d7d2e8801e13309c3584",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T10:20:00Z",
+      "annotations": []
+    },
+    {
+      "record_id": "IMG-0021",
+      "image_file": "images/IMG-0021.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 1806920,
+      "sha256_expected": "c8bdbefd1b55f4e6eba7ea73cf6b11be61f6ff21a93ddf1f60ee985bca15a450",
+      "sha256_received": "c8bdbefd1b55f4e6eba7ea73cf6b11be61f6ff21a93ddf1f60ee985bca15a450",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T10:27:00Z",
+      "annotations": [
+        {
+          "label": "cardiomegaly",
+          "bbox": [
+            860,
+            870,
+            274,
+            283
+          ],
+          "confidence": 0.75
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0022",
+      "image_file": "images/IMG-0022.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 0,
+      "sha256_expected": "848f75de3d776e05fba18967e94a641a5d5f7f052c601ae6dcb68ef96d915a22",
+      "sha256_received": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T10:34:00Z",
+      "annotations": [
+        {
+          "label": "effusion",
+          "bbox": [
+            1038,
+            572,
+            339,
+            382
+          ],
+          "confidence": 0.93
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0023",
+      "image_file": "images/IMG-0023.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 1899038,
+      "sha256_expected": "eaa6b0c92005b864b27c1ecdfc7aac86e0d58cc018448879892f6a41e0842003",
+      "sha256_received": "eaa6b0c92005b864b27c1ecdfc7aac86e0d58cc018448879892f6a41e0842003",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T10:41:00Z",
+      "annotations": [
+        {
+          "label": "pneumothorax",
+          "bbox": [
+            120,
+            703,
+            369,
+            386
+          ],
+          "confidence": 0.87
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0024",
+      "image_file": "images/IMG-0024.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 2133187,
+      "sha256_expected": "78b7c1df945165ae8b300158e00d478bdc5b59e43abddc7a338d0cae05b601ed",
+      "sha256_received": "78b7c1df945165ae8b300158e00d478bdc5b59e43abddc7a338d0cae05b601ed",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T10:48:00Z",
+      "annotations": [
+        {
+          "label": "mass",
+          "bbox": [
+            222,
+            1460,
+            443,
+            467
+          ],
+          "confidence": 0.77
+        },
+        {
+          "label": "nodule",
+          "bbox": [
+            414,
+            1581,
+            286,
+            267
+          ],
+          "confidence": 0.71
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0025",
+      "image_file": "images/IMG-0025.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 952898,
+      "sha256_expected": "c8a66d7a558a38e0ad6b826c66196d86d6e7de49d774375e7d7295d00c068134",
+      "sha256_received": "c8a66d7a558a38e0ad6b826c66196d86d6e7de49d774375e7d7295d00c068134",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T10:55:00Z",
+      "annotations": [
+        {
+          "label": "cardiomegaly",
+          "bbox": [
+            122,
+            303,
+            67,
+            289
+          ],
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0026",
+      "image_file": "images/IMG-0026.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 454809,
+      "sha256_expected": "40e56bd55c671f92ae1ab9a384c571d2ee3b4023fb4324689859fab0c7be7159",
+      "sha256_received": "40e56bd55c671f92ae1ab9a384c571d2ee3b4023fb4324689859fab0c7be7159",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T11:02:00Z",
+      "annotations": [
+        {
+          "label": "effusion",
+          "bbox": [
+            162,
+            772,
+            41,
+            157
+          ],
+          "confidence": 1.37
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0027",
+      "image_file": "images/IMG-0027.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 797867,
+      "sha256_expected": "29050027674982bfd187a09696a4e95ac3da6d3b3aa78e67e729f06e8db11cf7",
+      "sha256_received": "29050027674982bfd187a09696a4e95ac3da6d3b3aa78e67e729f06e8db11cf7",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T11:09:00Z",
+      "annotations": [
+        {
+          "label": "consolidation",
+          "bbox": [
+            1060,
+            1442,
+            384,
+            83
+          ],
+          "confidence": 0.81
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0028",
+      "image_file": "images/IMG-0028.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 972923,
+      "sha256_expected": "5b7cf652fbe94203af1c706633bcc4c63f81efecc23c5664e33c35f5d496e854",
+      "sha256_received": "5b7cf652fbe94203af1c706633bcc4c63f81efecc23c5664e33c35f5d496e854",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T11:16:00Z",
+      "annotations": []
+    },
+    {
+      "record_id": "IMG-0029",
+      "image_file": "images/IMG-0029.png",
+      "image_width": 0,
+      "image_height": 2048,
+      "file_size_bytes": 894860,
+      "sha256_expected": "4fc18f222c633f402098dca1394afd35ba4b52773afe8aae61753f4f42c17573",
+      "sha256_received": "4fc18f222c633f402098dca1394afd35ba4b52773afe8aae61753f4f42c17573",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T11:23:00Z",
+      "annotations": [
+        {
+          "label": "pneumothorax",
+          "bbox": [
+            500,
+            44,
+            231,
+            455
+          ],
+          "confidence": 0.69
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0030",
+      "image_file": "images/IMG-0030.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 1138052,
+      "sha256_expected": "c107c5925682546af1e5c537256a58a98f9e43ddb583183bf643eb593dcb78a9",
+      "sha256_received": "c107c5925682546af1e5c537256a58a98f9e43ddb583183bf643eb593dcb78a9",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T11:30:00Z",
+      "annotations": [
+        {
+          "label": "effusion",
+          "bbox": [
+            1286,
+            460,
+            118,
+            65
+          ],
+          "confidence": 0.73
+        },
+        {
+          "label": "effusion",
+          "bbox": [
+            469,
+            655,
+            330,
+            378
+          ],
+          "confidence": 0.78
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0031",
+      "image_file": "images/IMG-0031.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2380546,
+      "sha256_expected": "b84979ee7e7cf9b76b89dc31e95ed4bc4e38a15a7f6eb42bb6ea1030f91261c9",
+      "sha256_received": "b84979ee7e7cf9b76b89dc31e95ed4bc4e38a15a7f6eb42bb6ea1030f91261c9",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T11:37:00Z",
+      "annotations": [
+        {
+          "label": "mass",
+          "bbox": [
+            640,
+            512,
+            3,
+            4
+          ],
+          "confidence": 0.93
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0032",
+      "image_file": "images/IMG-0032.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 758057,
+      "sha256_expected": "c88eddc04f38ff4a7d03b915c0b7a12f07efa90dbf7b74d2b6fcc40b1305d5da",
+      "sha256_received": "c88eddc04f38ff4a7d03b915c0b7a12f07efa90dbf7b74d2b6fcc40b1305d5da",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T11:44:00Z",
+      "annotations": [
+        {
+          "label": "consolidation",
+          "bbox": [
+            535,
+            112,
+            261,
+            158
+          ],
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0033",
+      "image_file": null,
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": null,
+      "sha256_expected": "23d39df75047a854c578fcfe9f92c03f5ac05a07865b59387208adbdcc0e597b",
+      "sha256_received": null,
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T11:51:00Z",
+      "annotations": []
+    },
+    {
+      "record_id": "IMG-0034",
+      "image_file": "images/IMG-0034.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 770515,
+      "sha256_expected": "21b1256db5c2086c04579d9530e33a0081bf14b64c791d10bb287eb5e3aecc3f",
+      "sha256_received": "21b1256db5c2086c04579d9530e33a0081bf14b64c791d10bb287eb5e3aecc3f",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T11:58:00Z",
+      "annotations": [
+        {
+          "label": "effusion",
+          "bbox": [
+            1446,
+            532,
+            79,
+            506
+          ],
+          "confidence": 0.62
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0035",
+      "image_file": "images/IMG-0035.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 2601710,
+      "sha256_expected": "cd602cf1edaf74a7f051561bf76362cbc14a5221c217b6a07f07ef99de0e72fc",
+      "sha256_received": "cd602cf1edaf74a7f051561bf76362cbc14a5221c217b6a07f07ef99de0e72fc",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T12:05:00Z",
+      "annotations": []
+    },
+    {
+      "record_id": "IMG-0036",
+      "image_file": "images/IMG-0036.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 2004521,
+      "sha256_expected": "16a77429bf847fc014ab2607957d05c9d8d7e6d21d5f3df430967b8c3725f5cf",
+      "sha256_received": "16a77429bf847fc014ab2607957d05c9d8d7e6d21d5f3df430967b8c3725f5cf",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T12:12:00Z",
+      "annotations": []
+    },
+    {
+      "record_id": "IMG-0037",
+      "image_file": "images/IMG-0037.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 571170,
+      "sha256_expected": "590d0ba4e752eee06857a7555fa430b454806529860359bbbc0dffba95c82c3a",
+      "sha256_received": "590d0ba4e752eee06857a7555fa430b454806529860359bbbc0dffba95c82c3a",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T12:19:00Z",
+      "annotations": [
+        {
+          "label": "effusion",
+          "bbox": [
+            312,
+            440,
+            95
+          ],
+          "confidence": 0.66
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0038",
+      "image_file": "images/IMG-0038.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 482403,
+      "sha256_expected": "ddc639ea8cc3c1f5d655da50936fe2a4657ab3438fe53b5268699e58bb402b0a",
+      "sha256_received": "ddc639ea8cc3c1f5d655da50936fe2a4657ab3438fe53b5268699e58bb402b0a",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T12:26:00Z",
+      "annotations": [
+        {
+          "label": "mass",
+          "bbox": [
+            17,
+            303,
+            183,
+            342
+          ],
+          "confidence": 0.69
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0039",
+      "image_file": "images/IMG-0039.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 926223,
+      "sha256_expected": "d46e1aa6451b7f9ffe984c3def92feb5c718382910ab340467c763881a7ecc81",
+      "sha256_received": "d46e1aa6451b7f9ffe984c3def92feb5c718382910ab340467c763881a7ecc81",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T12:33:00Z",
+      "annotations": [
+        {
+          "label": "mass",
+          "bbox": [
+            520,
+            12,
+            344,
+            251
+          ],
+          "confidence": 0.71
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0040",
+      "image_file": "images/IMG-0040.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2449796,
+      "sha256_expected": "a534e4b49b2efef143ffc11deffe97e0ca7f384ed3436ab4b17f9c6c4f671b36",
+      "sha256_received": "7d69e8813c6e48148be597cc95e4b535f1625c528f349a60418858fe46aa498c",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T12:40:00Z",
+      "annotations": []
+    },
+    {
+      "record_id": "IMG-0041",
+      "image_file": "images/IMG-0041.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 2031620,
+      "sha256_expected": "b4acbd41bc13d8d887ed46a59f0009a3531812951572bc0db655bb1e22974000",
+      "sha256_received": "b4acbd41bc13d8d887ed46a59f0009a3531812951572bc0db655bb1e22974000",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T12:47:00Z",
+      "annotations": [
+        {
+          "label": "mass",
+          "bbox": [
+            794,
+            1513,
+            245,
+            125
+          ],
+          "confidence": 0.73
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0042",
+      "image_file": "images/IMG-0042.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 1720705,
+      "sha256_expected": "0606faa8bc0cc2a782f0339fe34d42f090edc8c3295fd8bd9204b0e9245349b5",
+      "sha256_received": "0606faa8bc0cc2a782f0339fe34d42f090edc8c3295fd8bd9204b0e9245349b5",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T12:54:00Z",
+      "annotations": []
+    },
+    {
+      "record_id": "IMG-0043",
+      "image_file": "images/IMG-0043.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 1202092,
+      "sha256_expected": "fe5ef0b10430a2524673c1eb36d775811733de0704b81d32fa957b20798bbe9d",
+      "sha256_received": "fe5ef0b10430a2524673c1eb36d775811733de0704b81d32fa957b20798bbe9d",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T13:01:00Z",
+      "annotations": [
+        {
+          "label": "lesion",
+          "bbox": [
+            1722,
+            1399,
+            77,
+            499
+          ],
+          "confidence": 0.76
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0044",
+      "image_file": "images/IMG-0044.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 2120836,
+      "sha256_expected": "af27e24bd11d3bb9be61773fd065236d2063c462eaf56a227b380efc29b3325e",
+      "sha256_received": "af27e24bd11d3bb9be61773fd065236d2063c462eaf56a227b380efc29b3325e",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T13:08:00Z",
+      "annotations": [
+        {
+          "label": "mass",
+          "bbox": [
+            1333,
+            924,
+            82,
+            366
+          ],
+          "confidence": 0.85
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0045",
+      "image_file": "images/IMG-0045.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 1064011,
+      "sha256_expected": "01ceedbb32aa00729e859a95502974a0110a7e958438ffa2b5c74a6950b994be",
+      "sha256_received": "01ceedbb32aa00729e859a95502974a0110a7e958438ffa2b5c74a6950b994be",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T13:15:00Z",
+      "annotations": [
+        {
+          "label": "effusion",
+          "bbox": [
+            231,
+            660,
+            90,
+            241
+          ],
+          "confidence": -0.2
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0046",
+      "image_file": "images/IMG-0046.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 2591170,
+      "sha256_expected": "3395e3572da1bba192f3cafc3cedaf45a281cde41e3011f3ce271f3fdf4a30d0",
+      "sha256_received": "3395e3572da1bba192f3cafc3cedaf45a281cde41e3011f3ce271f3fdf4a30d0",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T13:22:00Z",
+      "annotations": [
+        {
+          "label": "consolidation",
+          "bbox": [
+            924,
+            1039,
+            469,
+            48
+          ],
+          "confidence": 0.65
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0047",
+      "image_file": "images/IMG-0047.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 456292,
+      "sha256_expected": "b8c3bae0bdc0bbb232a49a26700e757e13f0671910f9d4a2d89086492d832e97",
+      "sha256_received": "b8c3bae0bdc0bbb232a49a26700e757e13f0671910f9d4a2d89086492d832e97",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T13:29:00Z",
+      "annotations": [
+        {
+          "label": "consolidation",
+          "bbox": [
+            710,
+            90,
+            57,
+            163
+          ],
+          "confidence": 0.79
+        }
+      ]
+    },
+    {
+      "record_id": "IMG-0048",
+      "image_file": "images/IMG-0048.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 932503,
+      "sha256_expected": "f8dbf94cb2e831f1e79acde7d43a45478b4373275c392c7e47899fbced7fcab3",
+      "sha256_received": "f8dbf94cb2e831f1e79acde7d43a45478b4373275c392c7e47899fbced7fcab3",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T13:36:00Z",
+      "annotations": []
+    },
+    {
+      "record_id": "IMG-0049",
+      "image_file": "images/IMG-0049.png",
+      "image_width": 1536,
+      "image_height": 1536,
+      "file_size_bytes": 427004,
+      "sha256_expected": "f1751d813dd94c48713f454ec04ac3e6217dac763af64ecf90dd4be8a0550ea2",
+      "sha256_received": "f1751d813dd94c48713f454ec04ac3e6217dac763af64ecf90dd4be8a0550ea2",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T13:43:00Z",
+      "annotations": []
+    },
+    {
+      "record_id": "IMG-0050",
+      "image_file": "images/IMG-0050.png",
+      "image_width": 2048,
+      "image_height": 2048,
+      "file_size_bytes": 2754667,
+      "sha256_expected": "579c7623862f41af16dffef8ec0270e38f32391de61b350bf55821543376cd44",
+      "sha256_received": "579c7623862f41af16dffef8ec0270e38f32391de61b350bf55821543376cd44",
+      "model_version": "vendor-detector-2.3.1",
+      "received_at": "2026-11-02T13:50:00Z",
+      "annotations": [
+        {
+          "label": "pneumothorax",
+          "bbox": [
+            769,
+            818,
+            442,
+            83
+          ],
+          "confidence": 0.72
+        }
+      ]
+    }
+  ]
+}

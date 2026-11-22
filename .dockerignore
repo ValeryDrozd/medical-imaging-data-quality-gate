@@ -1,0 +1,5 @@
+**
+!pyproject.toml
+!quality_gate/
+!quality_gate/**
+quality_gate/**/__pycache__/

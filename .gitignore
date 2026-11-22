@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.codex-checks.log
+*.egg-info/
+build/
+dist/
+.DS_Store
+prompt.md
+task_description/*
+!task_description/batch.json
+!task_description/taxonomy.json
+/results.json

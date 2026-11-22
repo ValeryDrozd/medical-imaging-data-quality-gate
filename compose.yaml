@@ -1,0 +1,6 @@
+services:
+  gate:
+    build: .
+    network_mode: none
+    volumes:
+      - ./task_description:/app/task_description:ro

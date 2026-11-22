@@ -1,0 +1,687 @@
+{
+  "batch_id": "BATCH-2026-11-02-A",
+  "taxonomy_version": "1.2",
+  "mode": "metadata_only",
+  "confidence_threshold": 0.5,
+  "summary": {
+    "record_count": 50,
+    "status_counts": {
+      "PASS": 36,
+      "NEEDS_REVIEW": 1,
+      "FAIL": 13
+    },
+    "failure_reason_counts": {
+      "CONFIDENCE_INVALID": 2,
+      "IMAGE_REFERENCE_MISSING": 2,
+      "LABEL_UNKNOWN": 2,
+      "SHA256_MISMATCH": 2,
+      "BBOX_FORMAT_INVALID": 1,
+      "BBOX_GEOMETRY_INVALID": 1,
+      "BBOX_OUT_OF_BOUNDS": 1,
+      "FILE_EMPTY": 1,
+      "IMAGE_DIMENSION_INVALID": 1,
+      "LABEL_DEPRECATED": 1
+    },
+    "review_ids": [
+      "IMG-0009"
+    ]
+  },
+  "records": [
+    {
+      "record_index": 0,
+      "record_id": "IMG-0001",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 1,
+      "record_id": "IMG-0002",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 2,
+      "record_id": "IMG-0003",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 3,
+      "record_id": "IMG-0004",
+      "status": "FAIL",
+      "reasons": [
+        {
+          "code": "BBOX_OUT_OF_BOUNDS",
+          "message": "The box extends beyond the image width.",
+          "level": "FAIL",
+          "annotation_index": 0
+        }
+      ]
+    },
+    {
+      "record_index": 4,
+      "record_id": "IMG-0005",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 5,
+      "record_id": "IMG-0006",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 6,
+      "record_id": "IMG-0007",
+      "status": "FAIL",
+      "reasons": [
+        {
+          "code": "LABEL_UNKNOWN",
+          "message": "Label 'efusion' is outside the taxonomy.",
+          "level": "FAIL",
+          "annotation_index": 0
+        }
+      ]
+    },
+    {
+      "record_index": 7,
+      "record_id": "IMG-0008",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 8,
+      "record_id": "IMG-0009",
+      "status": "NEEDS_REVIEW",
+      "reasons": [
+        {
+          "code": "CONFIDENCE_LOW",
+          "message": "Confidence 0.38 is below the review threshold 0.5.",
+          "level": "NEEDS_REVIEW",
+          "annotation_index": 0
+        }
+      ]
+    },
+    {
+      "record_index": 9,
+      "record_id": "IMG-0010",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 10,
+      "record_id": "IMG-0011",
+      "status": "FAIL",
+      "reasons": [
+        {
+          "code": "BBOX_GEOMETRY_INVALID",
+          "message": "On the width axis, origin must be nonnegative and extent positive.",
+          "level": "FAIL",
+          "annotation_index": 0
+        }
+      ]
+    },
+    {
+      "record_index": 11,
+      "record_id": "IMG-0012",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 12,
+      "record_id": "IMG-0013",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 13,
+      "record_id": "IMG-0014",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 14,
+      "record_id": "IMG-0015",
+      "status": "FAIL",
+      "reasons": [
+        {
+          "code": "IMAGE_REFERENCE_MISSING",
+          "message": "image_file is missing or blank.",
+          "level": "FAIL",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 15,
+      "record_id": "IMG-0016",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 16,
+      "record_id": "IMG-0017",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 17,
+      "record_id": "IMG-0018",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 18,
+      "record_id": "IMG-0019",
+      "status": "FAIL",
+      "reasons": [
+        {
+          "code": "LABEL_UNKNOWN",
+          "message": "Label 'fracture' is outside the taxonomy.",
+          "level": "FAIL",
+          "annotation_index": 0
+        }
+      ]
+    },
+    {
+      "record_index": 19,
+      "record_id": "IMG-0020",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 20,
+      "record_id": "IMG-0021",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 21,
+      "record_id": "IMG-0022",
+      "status": "FAIL",
+      "reasons": [
+        {
+          "code": "FILE_EMPTY",
+          "message": "The declared file size is zero bytes.",
+          "level": "FAIL",
+          "annotation_index": null
+        },
+        {
+          "code": "SHA256_MISMATCH",
+          "message": "Declared expected and received SHA-256 differ.",
+          "level": "FAIL",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 22,
+      "record_id": "IMG-0023",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 23,
+      "record_id": "IMG-0024",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 24,
+      "record_id": "IMG-0025",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 25,
+      "record_id": "IMG-0026",
+      "status": "FAIL",
+      "reasons": [
+        {
+          "code": "CONFIDENCE_INVALID",
+          "message": "Confidence must be a finite number in [0, 1].",
+          "level": "FAIL",
+          "annotation_index": 0
+        }
+      ]
+    },
+    {
+      "record_index": 26,
+      "record_id": "IMG-0027",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 27,
+      "record_id": "IMG-0028",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 28,
+      "record_id": "IMG-0029",
+      "status": "FAIL",
+      "reasons": [
+        {
+          "code": "IMAGE_DIMENSION_INVALID",
+          "message": "image_width must be a positive integer.",
+          "level": "FAIL",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 29,
+      "record_id": "IMG-0030",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 30,
+      "record_id": "IMG-0031",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 31,
+      "record_id": "IMG-0032",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 32,
+      "record_id": "IMG-0033",
+      "status": "FAIL",
+      "reasons": [
+        {
+          "code": "IMAGE_REFERENCE_MISSING",
+          "message": "image_file is missing or blank.",
+          "level": "FAIL",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 33,
+      "record_id": "IMG-0034",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 34,
+      "record_id": "IMG-0035",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 35,
+      "record_id": "IMG-0036",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 36,
+      "record_id": "IMG-0037",
+      "status": "FAIL",
+      "reasons": [
+        {
+          "code": "BBOX_FORMAT_INVALID",
+          "message": "bbox must contain four finite numbers [x, y, width, height].",
+          "level": "FAIL",
+          "annotation_index": 0
+        }
+      ]
+    },
+    {
+      "record_index": 37,
+      "record_id": "IMG-0038",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 38,
+      "record_id": "IMG-0039",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 39,
+      "record_id": "IMG-0040",
+      "status": "FAIL",
+      "reasons": [
+        {
+          "code": "SHA256_MISMATCH",
+          "message": "Declared expected and received SHA-256 differ.",
+          "level": "FAIL",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 40,
+      "record_id": "IMG-0041",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 41,
+      "record_id": "IMG-0042",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 42,
+      "record_id": "IMG-0043",
+      "status": "FAIL",
+      "reasons": [
+        {
+          "code": "LABEL_DEPRECATED",
+          "message": "Label 'lesion' is deprecated. No direct mapping; previously used for both nodule and mass.",
+          "level": "FAIL",
+          "annotation_index": 0
+        }
+      ]
+    },
+    {
+      "record_index": 43,
+      "record_id": "IMG-0044",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 44,
+      "record_id": "IMG-0045",
+      "status": "FAIL",
+      "reasons": [
+        {
+          "code": "CONFIDENCE_INVALID",
+          "message": "Confidence must be a finite number in [0, 1].",
+          "level": "FAIL",
+          "annotation_index": 0
+        }
+      ]
+    },
+    {
+      "record_index": 45,
+      "record_id": "IMG-0046",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 46,
+      "record_id": "IMG-0047",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 47,
+      "record_id": "IMG-0048",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 48,
+      "record_id": "IMG-0049",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    },
+    {
+      "record_index": 49,
+      "record_id": "IMG-0050",
+      "status": "PASS",
+      "reasons": [
+        {
+          "code": "CHECKS_PASSED",
+          "message": "All applicable checks passed.",
+          "level": "PASS",
+          "annotation_index": null
+        }
+      ]
+    }
+  ]
+}

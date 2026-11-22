@@ -1,0 +1,41 @@
+{
+  "taxonomy_version": "1.2",
+  "modality": "XR (synthetic chest X-ray)",
+  "labels": [
+    {
+      "label": "nodule",
+      "description": "Small rounded opacity"
+    },
+    {
+      "label": "mass",
+      "description": "Opacity larger than 30 mm"
+    },
+    {
+      "label": "effusion",
+      "description": "Fluid in the pleural space"
+    },
+    {
+      "label": "consolidation",
+      "description": "Region of filled airspace"
+    },
+    {
+      "label": "pneumothorax",
+      "description": "Air in the pleural space"
+    },
+    {
+      "label": "cardiomegaly",
+      "description": "Enlarged cardiac silhouette"
+    }
+  ],
+  "deprecated_aliases": {
+    "lesion": "No direct mapping; previously used for both nodule and mass"
+  },
+  "rules": {
+    "bbox_format": "[x, y, width, height] in pixels, origin at top-left",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "records_without_annotations": "Allowed; means the vendor model found nothing"
+  }
+}
