@@ -4,3 +4,21 @@ services:
     network_mode: none
     volumes:
       - ./task_description:/app/task_description:ro
+  mcp:
+    profiles: [mcp]
+    build: .
+    working_dir: /data
+    entrypoint:
+      - python
+      - -m
+      - quality_gate.mcp_server
+      - --transport
+      - streamable-http
+      - --host
+      - 0.0.0.0
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./task_description/batch.json:/data/task_description/batch.json:ro
+      - ./task_description/taxonomy.json:/data/task_description/taxonomy.json:ro
+      - ./task_description/edge_cases:/data/task_description/edge_cases:ro

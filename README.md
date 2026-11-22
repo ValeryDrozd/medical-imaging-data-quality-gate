@@ -28,7 +28,7 @@ Review **IMG-0009**, whose confidence was 0.38. The most common failures were in
 
 ## Developer and review entry points
 
-For MCP setup, deployment and tool-call examples, see the [MCP guide](MCP.md). For local checks, see [AGENTS.md](AGENTS.md). See also the [acceptance criteria](SPEC.md) and [AI log](AI_LOG.md).
+For MCP setup and deployment, see the [MCP guide](MCP.md). For local checks, see [AGENTS.md](AGENTS.md). See also the [acceptance criteria and edge-case batches](SPEC.md) and [AI log](AI_LOG.md).
 
 ## Questions for the client
 

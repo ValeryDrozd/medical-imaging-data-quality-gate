@@ -1,0 +1,7 @@
+{
+  "batch_id": "EDGE-INVALID-COUNT",
+  "source": "Edge-case fixture derived from the supplied synthetic batch.",
+  "taxonomy_version": "1.2",
+  "record_count": 1,
+  "records": []
+}
