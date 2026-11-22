@@ -1,11 +1,15 @@
 # AI log
 
-I built the MVP in the Codex desktop app with the `gpt-6.2-sol` model. Codex inspected the supplied fixtures, edited the project and ran Docker Compose, Ruff, pytest and GitHub CLI. A Codex CLI smoke run verified that the Stop hook executed Ruff and pytest automatically.
+I built and reviewed the MVP in Codex desktop with the `gpt-6.2-sol` model. I used Docker Compose to run the synthetic batches, Ruff and pytest for checks, and GitHub CLI and the GitHub connector for repository work. A Codex CLI smoke run verified that the Stop hook ran Ruff and pytest automatically.
 
-Three excerpts from real prompts used during the work
+## Prompt excerpts
 
-1. “MCP is mandatory. Expose a `validate_batch` tool that calls the same Python core as the CLI.” This drove the shared core and the stdio parity test.
-2. “With the stated policy, the supplied batch should produce 36 PASS, 13 FAIL, and 1 NEEDS_REVIEW (`IMG-0009`). Verify this with an integration test.” This became the regression test for the real fixture.
-3. “Reply with the single word verified. Do not call tools or edit files.” I sent this to the CLI so the check log could only come from the automatic Stop hook during that smoke run.
+1. “MCP is mandatory. Expose a `validate_batch` tool that calls the same Python core as the CLI.” This drove the shared core and the parity tests.
+2. “Find if there are any edge cases, generate more batches in several files” led to seven synthetic fixtures and tests that verify recovery after invalid manifests.
+3. “All checks should be in a separate file, and each should be described in comment above it” led to the rules moving into `quality_gate/checks.py`.
 
-I initially redirected `docker compose run --build` into the result file. The installed Compose release wrote build progress to stdout, and `jq` rejected the file. I moved the build into the same one-command script with its output redirected to stderr, then reran the batch and verified that the resulting file parsed as JSON and matched the Python CLI report.
+## Mistake and verification
+
+I initially relied on Pillow's `verify()` and `load()` to validate the entire PNG. A sweep of 68 truncated versions of a blank test image found four that passed when their declared sizes and hashes matched the remaining bytes. I added an explicit final-chunk and checksum check, then confirmed that all 68 truncated versions failed.
+
+Ruff and 27 pytest tests passed. The Docker MCP tool returned 36 PASS, 13 FAIL and 1 NEEDS_REVIEW for `IMG-0009` when called from this Codex session. The 0.38 override was verified separately and moved `IMG-0009` to PASS for that call.
