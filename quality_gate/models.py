@@ -1,11 +1,21 @@
 from pathlib import Path
-from typing import Literal
+from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, JsonValue
 
 Status = Literal["PASS", "FAIL", "NEEDS_REVIEW"]
 Mode = Literal["metadata_only", "files"]
 RequestedMode = Literal["auto", "metadata_only", "files"]
+ConfidenceThreshold = Annotated[
+    float,
+    Field(
+        strict=True,
+        ge=0,
+        le=1,
+        allow_inf_nan=False,
+        description="Send valid confidence scores below this threshold to review for this call.",
+    ),
+]
 
 DEFAULT_BATCH = Path("task_description/batch.json")
 DEFAULT_TAXONOMY = Path("task_description/taxonomy.json")
@@ -34,9 +44,7 @@ class Taxonomy(BaseModel):
 
 
 class RunOptions(BaseModel):
-    confidence_threshold: float = Field(
-        default=DEFAULT_THRESHOLD, strict=True, ge=0, le=1, allow_inf_nan=False
-    )
+    confidence_threshold: ConfidenceThreshold = DEFAULT_THRESHOLD
     mode: RequestedMode = "auto"
 
 

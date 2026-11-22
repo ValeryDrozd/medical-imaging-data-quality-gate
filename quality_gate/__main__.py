@@ -10,7 +10,12 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Validate one synthetic medical imaging batch.")
     parser.add_argument("--batch", type=Path, default=DEFAULT_BATCH)
     parser.add_argument("--taxonomy", type=Path, default=DEFAULT_TAXONOMY)
-    parser.add_argument("--confidence-threshold", type=float, default=DEFAULT_THRESHOLD)
+    parser.add_argument(
+        "--confidence-threshold",
+        type=float,
+        default=DEFAULT_THRESHOLD,
+        help=f"review threshold for this batch, from 0 to 1 (default: {DEFAULT_THRESHOLD:.2f})",
+    )
     parser.add_argument("--mode", choices=("auto", "metadata_only", "files"), default="auto")
     args = parser.parse_args()
     try:

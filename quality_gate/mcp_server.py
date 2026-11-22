@@ -8,6 +8,7 @@ from quality_gate.models import (
     DEFAULT_TAXONOMY,
     DEFAULT_THRESHOLD,
     BatchResult,
+    ConfidenceThreshold,
     RequestedMode,
 )
 
@@ -26,7 +27,7 @@ def workspace_file(filename: str) -> Path:
 def validate_batch_tool(
     batch_file: str = str(DEFAULT_BATCH),
     taxonomy_file: str = str(DEFAULT_TAXONOMY),
-    confidence_threshold: float = DEFAULT_THRESHOLD,
+    confidence_threshold: ConfidenceThreshold = DEFAULT_THRESHOLD,
     mode: RequestedMode = "auto",
 ) -> BatchResult:
     """Validate a local synthetic manifest and return record decisions and a batch summary."""
