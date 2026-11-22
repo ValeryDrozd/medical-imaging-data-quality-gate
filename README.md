@@ -10,7 +10,7 @@ With Docker Compose v2 and a running Docker daemon, run this from the repository
 sh scripts/run-batch.sh > results.json
 ```
 
-The script builds and runs the Compose service and writes the JSON report to stdout. Set `DOCKER_CONTEXT=desktop-linux` if Docker Desktop uses that context on your machine. Pass `--confidence-threshold 0.60` to try a different threshold.
+The script builds and runs the Compose service and writes the JSON report to stdout. Set `DOCKER_CONTEXT=desktop-linux` if Docker Desktop uses that context on your machine. Each run defaults to a confidence threshold of 0.50. For example, `sh scripts/run-batch.sh --confidence-threshold 0.38 > results.json` applies 0.38 to that run.
 
 ## Actual result
 
@@ -23,12 +23,12 @@ Review **IMG-0009**, whose confidence was 0.38. The most common failures were in
 ## Assumptions
 
 - Each batch is independent and declares the version of the supplied taxonomy. Labels are exact and case-sensitive. The deprecated label `lesion` fails without mapping. Empty annotation arrays are valid.
-- The demo threshold is 0.50. Lower valid scores go to human review. A hard failure takes precedence. Review handoff is the `review_ids` list in the report.
+- Valid scores below the applied confidence threshold go to human review. A hard failure takes precedence. Review handoff is the `review_ids` list in the report.
 - The delivery contains image metadata and zero PNG files. In automatic mode, any available referenced PNG activates file checks across the batch. Use `--mode files` when every referenced PNG is expected. Boxes use declared dimensions, a top-left origin and pixel units.
 
 ## Developer and review entry points
 
-Create `.venv` and install `.[dev]` as described in [AGENTS.md](AGENTS.md). Run `sh scripts/check.sh` locally. From the repository root, start the stdio MCP server with `.venv/bin/python -m quality_gate.mcp_server` and call `validate_batch` with `{}` to run the supplied batch. See the [acceptance criteria](SPEC.md) and [AI log](AI_LOG.md).
+For MCP setup, deployment and tool-call examples, see the [MCP guide](MCP.md). For local checks, see [AGENTS.md](AGENTS.md). See also the [acceptance criteria](SPEC.md) and [AI log](AI_LOG.md).
 
 ## Questions for the client
 

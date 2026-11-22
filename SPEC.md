@@ -7,6 +7,7 @@
 | Delivery envelope | Accept a batch JSON object with a nonempty batch ID, taxonomy version, declared record count and records array. The version must match the taxonomy and the count must match the array length. |
 | Invalid run input | Invalid JSON, an unreadable manifest, an invalid envelope or taxonomy, a version/count mismatch or an invalid threshold aborts the run. The CLI reports the input error to stderr and exits 2. MCP reports a tool error. |
 | Independent deliveries | Given the same input files, options and available PNGs, both entry points return the same report. A completed CLI run exits 0 for any mix of record decisions. |
+| Per-call threshold | `--confidence-threshold` in the CLI and `confidence_threshold` in MCP accept a finite number from 0 to 1 inclusive. An omitted threshold uses 0.50, even after a previous MCP call with an override. With 0.38, the supplied batch has 37 PASS, 13 FAIL and zero NEEDS_REVIEW. |
 | Record isolation | Emit one result per input element in input order. A non-object fails with `RECORD_INVALID`. A missing or invalid record ID fails with `RECORD_ID_INVALID` and the zero-based `record_index` still identifies the element. |
 | Image mode | In `auto`, resolve references relative to the batch directory. If any referenced regular file exists, use `files`. Otherwise use `metadata_only`. Either mode can be selected explicitly. The result reports the mode used. |
 

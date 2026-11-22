@@ -188,14 +188,19 @@ def test_escaping_image_path(sample_record: Record, write_batch: Callable[..., P
     assert result.records[0].reasons[0].code == "IMAGE_REFERENCE_INVALID"
 
 
-def test_cli_and_mcp_return_the_core_report() -> None:
-    expected = validate_batch(BATCH, TAXONOMY)
+@pytest.mark.parametrize(
+    ("flags", "threshold"), [([], 0.50), (["--confidence-threshold", "0.38"], 0.38)]
+)
+def test_cli_returns_core_report(flags: list[str], threshold: float) -> None:
+    expected = validate_batch(BATCH, TAXONOMY, confidence_threshold=threshold)
     cli = subprocess.run(
-        [sys.executable, "-m", "quality_gate"], cwd=ROOT, check=True, capture_output=True
+        [sys.executable, "-m", "quality_gate", *flags], cwd=ROOT, check=True, capture_output=True
     )
     assert BatchResult.model_validate_json(cli.stdout) == expected
 
-    async def call_tool() -> BatchResult:
+
+def test_mcp_threshold_is_per_call() -> None:
+    async def check_calls() -> None:
         params = StdioServerParameters(
             command=sys.executable, args=["-m", "quality_gate.mcp_server"], cwd=ROOT
         )
@@ -203,9 +208,22 @@ def test_cli_and_mcp_return_the_core_report() -> None:
             await client.initialize()
             tools = await client.list_tools()
             assert [tool.name for tool in tools.tools] == ["validate_batch"]
-            result = await client.call_tool("validate_batch")
-            assert not result.isError
-            assert result.structuredContent is not None
-            return BatchResult.model_validate(result.structuredContent)
+            schema = tools.tools[0].inputSchema["properties"]["confidence_threshold"]
+            assert schema["default"] == 0.50
+            assert schema["minimum"] == 0
+            assert schema["maximum"] == 1
+            for arguments, threshold in (
+                ({}, 0.50),
+                ({"confidence_threshold": 0.38}, 0.38),
+                ({}, 0.50),
+            ):
+                result = await client.call_tool("validate_batch", arguments)
+                assert not result.isError
+                report = BatchResult.model_validate(result.structuredContent)
+                assert report == validate_batch(BATCH, TAXONOMY, confidence_threshold=threshold)
+                assert report.summary.review_ids == ([] if threshold == 0.38 else ["IMG-0009"])
+            for invalid in (True, "0.38", -0.01, 1.01):
+                result = await client.call_tool("validate_batch", {"confidence_threshold": invalid})
+                assert result.isError
 
-    assert asyncio.run(call_tool()) == expected
+    asyncio.run(check_calls())
