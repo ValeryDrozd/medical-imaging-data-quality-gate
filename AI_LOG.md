@@ -10,6 +10,6 @@ I built and reviewed the MVP in Codex desktop with the `gpt-6.2-sol` model. I us
 
 ## Mistake and verification
 
-I initially relied on Pillow's `verify()` and `load()` to validate the entire PNG. A sweep of 68 truncated versions of a blank test image found four that passed when their declared sizes and hashes matched the remaining bytes. I added an explicit final-chunk and checksum check, then confirmed that all 68 truncated versions failed.
+In the earlier optional file mode, I initially relied on Pillow's `verify()` and `load()` to validate an entire PNG. A sweep of 68 truncated versions of a blank test image found four that passed when their declared sizes and hashes matched the remaining bytes. An explicit final-chunk and checksum check caught all 68. The project later narrowed the gate to the supplied JSON and retired that mode.
 
 Ruff and 27 pytest tests passed. The Docker MCP tool returned 36 PASS, 13 FAIL and 1 NEEDS_REVIEW for `IMG-0009` when called from this Codex session. The 0.38 override was verified separately and moved `IMG-0009` to PASS for that call.

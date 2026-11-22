@@ -24,7 +24,7 @@ Review **IMG-0009**, whose confidence was 0.38. The most common failures were in
 
 - Each batch is independent and declares the version of the supplied taxonomy. Labels are exact and case-sensitive. The deprecated label `lesion` fails without mapping. Empty annotation arrays are valid.
 - Valid scores below the applied confidence threshold go to human review. A hard failure takes precedence. Review handoff is the `review_ids` list in the report.
-- The delivery contains image metadata and zero PNG files. In automatic mode, any available referenced PNG activates file checks across the batch. Use `--mode files` when every referenced PNG is expected. Boxes use declared dimensions, a top-left origin and pixel units.
+- The delivery contains image metadata and zero PNG files. The gate checks declared references, sizes and hashes in JSON, and reports `metadata_only`. Boxes use declared dimensions, a top-left origin and pixel units.
 
 ## Developer and review entry points
 

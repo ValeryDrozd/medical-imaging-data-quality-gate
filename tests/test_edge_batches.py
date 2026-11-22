@@ -7,8 +7,10 @@ from pathlib import Path
 import pytest
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
+from pydantic import JsonValue
 
 from quality_gate.core import validate_batch
+from quality_gate.mcp_server import ErrorCode, ToolFailure
 from quality_gate.models import BatchResult
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -143,11 +145,25 @@ def test_mcp_recovers_after_bad_batches() -> None:
         )
         async with stdio_client(params) as (read, write), ClientSession(read, write) as client:
             await client.initialize()
-            for name in INVALID_BATCHES:
-                result = await client.call_tool(
-                    "validate_batch", {"batch_file": str(EDGE_BATCHES / f"{name}.json")}
-                )
-                assert result.isError
+            calls: list[tuple[dict[str, JsonValue], ErrorCode]] = [
+                ({"batch_file": str(EDGE_BATCHES / f"{name}.json")}, "INVALID_BATCH_INPUT")
+                for name in INVALID_BATCHES
+            ]
+            calls.extend(
+                [
+                    ({"batch_file": "missing.json"}, "INPUT_UNAVAILABLE"),
+                    ({"taxonomy_file": "missing.json"}, "INPUT_UNAVAILABLE"),
+                    ({"batch_file": "task_description"}, "INPUT_UNAVAILABLE"),
+                    ({"batch_file": "../batch.json"}, "INPUT_PATH_INVALID"),
+                    ({"batch_file": "\x00.json"}, "INPUT_PATH_INVALID"),
+                    ({"taxonomy_file": 42}, "INVALID_ARGUMENTS"),
+                    ({"mode": "files"}, "INVALID_ARGUMENTS"),
+                ]
+            )
+            for arguments, code in calls:
+                result = await client.call_tool("validate_batch", arguments)
+                assert not result.isError
+                assert ToolFailure.model_validate(result.structuredContent).error.code == code
             for name in VALID_BATCHES:
                 batch_file = EDGE_BATCHES / f"{name}.json"
                 result = await client.call_tool("validate_batch", {"batch_file": str(batch_file)})

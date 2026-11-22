@@ -7,7 +7,7 @@ name = "medical-imaging-data-quality-gate"
 version = "0.1.0"
 description = "Deterministic quality gate for synthetic medical imaging batches"
 requires-python = ">=3.10"
-dependencies = ["pydantic==2.14.4", "mcp==1.30.0", "Pillow==12.3.0"]
+dependencies = ["pydantic==2.14.4", "mcp==1.30.0"]
 
 [project.optional-dependencies]
 dev = ["pytest==8.4.2", "ruff==0.17.6"]

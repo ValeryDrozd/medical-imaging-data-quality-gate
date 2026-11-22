@@ -75,4 +75,23 @@ In Codex, ask “Call the `quality_gate_docker` server’s `validate_batch` tool
 
 The response includes the applied `confidence_threshold`, `summary` and per-record `records`. At 0.50, `IMG-0009` needs review. At 0.38, its confidence equals the threshold and it passes, giving **37 PASS, 13 FAIL and 0 NEEDS_REVIEW**. A later call with `{}` uses 0.50 again.
 
-Optional arguments are `batch_file` (default `task_description/batch.json`), `taxonomy_file` (default `task_description/taxonomy.json`) and `mode` (`auto`, `metadata_only` or `files`). File paths refer to the server’s working directory. For local Docker HTTP, use `task_description/edge_cases/annotation-boundaries.json` to try an edge-case batch.
+Optional file arguments are `batch_file` (default `task_description/batch.json`) and `taxonomy_file` (default `task_description/taxonomy.json`). Use paths within the server’s working directory. For local Docker HTTP, use `task_description/edge_cases/annotation-boundaries.json` to try an edge-case batch. Reports always use `metadata_only`.
+
+### Failed calls
+
+The tool returns invalid inputs and processing failures as structured results with MCP `isError: false`. Check for the `error` field before reading `summary` or `records`.
+
+```json
+{"error":{"code":"INVALID_THRESHOLD","message":"Confidence threshold must be between 0 and 1."}}
+```
+
+| Code | Meaning |
+| --- | --- |
+| `INVALID_ARGUMENTS` | One or more arguments do not match the tool schema. |
+| `INVALID_THRESHOLD` | The threshold is not a finite JSON number from 0 to 1. |
+| `INPUT_PATH_INVALID` | A batch or taxonomy path is malformed or outside the workspace. |
+| `INPUT_UNAVAILABLE` | A batch or taxonomy file is missing, unreadable or not a regular file. |
+| `INVALID_BATCH_INPUT` | The JSON is malformed or violates the batch or taxonomy contract. |
+| `INTERNAL_ERROR` | An unexpected failure occurred. The details are in the server log. |
+
+These results apply to `validate_batch` calls received by the server. Malformed MCP messages and disconnections are handled by the transport.

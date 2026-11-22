@@ -1,16 +1,13 @@
 import asyncio
-import hashlib
 import json
 import subprocess
 import sys
-import warnings
 from collections.abc import Callable
 from pathlib import Path
 
 import pytest
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
-from PIL import Image
 from pydantic import JsonValue
 
 from quality_gate.core import validate_batch
@@ -144,83 +141,38 @@ def test_invalid_batch_inputs(write_batch: Callable[..., Path]) -> None:
         validate_batch(write_batch([]), TAXONOMY, confidence_threshold=1.1)
 
 
-def test_file_mode(
-    sample_record: Record,
-    write_batch: Callable[..., Path],
-    tmp_path: Path,
-    monkeypatch: pytest.MonkeyPatch,
+def test_image_metadata_is_independent_of_disk(
+    sample_record: Record, write_batch: Callable[..., Path], tmp_path: Path
 ) -> None:
-    image_file = tmp_path / "test.png"
-    with Image.new("L", (2, 2)) as image:
-        image.save(image_file)
-    data = image_file.read_bytes()
-    digest = hashlib.sha256(data).hexdigest()
+    sample_record.update(image_file="image.png", annotations=[])
+    batch = write_batch([sample_record])
+    expected = validate_batch(batch, TAXONOMY)
+    assert expected.mode == "metadata_only"
+    assert expected.records[0].status == "PASS"
+
+    reference = tmp_path / "image.png"
+    reference.mkdir()
+    assert validate_batch(batch, TAXONOMY) == expected
+    reference.rmdir()
+    reference.write_bytes(b"")
+    assert validate_batch(batch, TAXONOMY) == expected
+
+
+@pytest.mark.parametrize(("extent", "status"), [(1, "PASS"), (1.1, "FAIL"), (2, "FAIL")])
+def test_box_bounds_use_exact_arithmetic(
+    extent: int | float, status: Status, sample_record: Record, write_batch: Callable[..., Path]
+) -> None:
+    # Binary floating-point addition would round every sum here to the image edge.
+    limit = 2**54
     sample_record.update(
-        image_file=image_file.name,
-        image_width=2,
-        image_height=2,
-        file_size_bytes=len(data),
-        sha256_expected=digest,
-        sha256_received=digest.upper(),
-        annotations=[],
+        image_width=limit,
+        annotations=[{"label": "nodule", "bbox": [limit - 1, 0, extent, 1], "confidence": 1}],
     )
-    other = sample_record | {"record_id": "MISSING", "image_file": "missing.png"}
-    batch_file = write_batch([sample_record, other])
-    result = validate_batch(batch_file, TAXONOMY)
-    assert result.mode == "files"
-    assert result.records[0].status == "PASS"
-    assert result.records[1].reasons[0].code == "IMAGE_FILE_MISSING"
-
-    alias_dir = tmp_path / "aliases"
-    alias_dir.mkdir()
-    symlink = alias_dir / "linked-batch.json"
-    symlink.symlink_to(batch_file)
-    assert validate_batch(symlink, TAXONOMY) == result
-
-    with monkeypatch.context() as limits:
-        limits.setattr(Image, "MAX_IMAGE_PIXELS", 3)
-        for action in ("error", "ignore"):
-            with warnings.catch_warnings():
-                warnings.simplefilter(action, Image.DecompressionBombWarning)
-                result = validate_batch(batch_file, TAXONOMY)
-            assert result.records[0].reasons[0].code == "IMAGE_FILE_TOO_LARGE"
-            assert result.records[1].reasons[0].code == "IMAGE_FILE_MISSING"
-
-    wrong_dimensions = sample_record | {"image_width": 3}
-    result = validate_batch(write_batch([wrong_dimensions]), TAXONOMY)
-    assert result.records[0].reasons[0].code == "IMAGE_DIMENSIONS_MISMATCH"
-
-    image_file.write_bytes(data[:20])
-    result = validate_batch(write_batch([sample_record]), TAXONOMY)
-    assert [reason.code for reason in result.records[0].reasons] == [
-        "FILE_SIZE_MISMATCH",
-        "FILE_SHA256_MISMATCH",
-        "IMAGE_FILE_CORRUPT",
+    record = validate_batch(write_batch([sample_record]), TAXONOMY).records[0]
+    assert record.status == status
+    assert [reason.code for reason in record.reasons] == [
+        "CHECKS_PASSED" if status == "PASS" else "BBOX_OUT_OF_BOUNDS"
     ]
-
-    for damaged in (data[:-1], data[:-1] + bytes([data[-1] ^ 1]), data + data[-12:]):
-        image_file.write_bytes(damaged)
-        damaged_digest = hashlib.sha256(damaged).hexdigest()
-        matching_declarations = sample_record | {
-            "file_size_bytes": len(damaged),
-            "sha256_expected": damaged_digest,
-            "sha256_received": damaged_digest,
-        }
-        result = validate_batch(write_batch([matching_declarations]), TAXONOMY)
-        assert [reason.code for reason in result.records[0].reasons] == ["IMAGE_FILE_CORRUPT"]
-
-    image_file.write_bytes(b"")
-    result = validate_batch(write_batch([sample_record | {"file_size_bytes": False}]), TAXONOMY)
-    assert [reason.code for reason in result.records[0].reasons] == [
-        "FILE_SIZE_INVALID",
-        "FILE_SHA256_MISMATCH",
-        "FILE_EMPTY",
-    ]
-
-    image_file.unlink()
-    result = validate_batch(write_batch([sample_record]), TAXONOMY, mode="files")
-    assert result.mode == "files"
-    assert result.records[0].reasons[0].code == "IMAGE_FILE_MISSING"
 
 
 def test_escaping_image_path(sample_record: Record, write_batch: Callable[..., Path]) -> None:
@@ -249,7 +201,9 @@ def test_mcp_threshold_is_per_call() -> None:
             await client.initialize()
             tools = await client.list_tools()
             assert [tool.name for tool in tools.tools] == ["validate_batch"]
-            schema = tools.tools[0].inputSchema["properties"]["confidence_threshold"]
+            properties = tools.tools[0].inputSchema["properties"]
+            assert "mode" not in properties
+            schema = properties["confidence_threshold"]
             assert schema["default"] == 0.50
             assert schema["minimum"] == 0
             assert schema["maximum"] == 1
@@ -265,6 +219,12 @@ def test_mcp_threshold_is_per_call() -> None:
                 assert report.summary.review_ids == ([] if threshold == 0.38 else ["IMG-0009"])
             for invalid in (True, "0.38", -0.01, 1.01):
                 result = await client.call_tool("validate_batch", {"confidence_threshold": invalid})
-                assert result.isError
+                assert not result.isError
+                assert result.structuredContent == {
+                    "error": {
+                        "code": "INVALID_THRESHOLD",
+                        "message": "Confidence threshold must be between 0 and 1.",
+                    }
+                }
 
     asyncio.run(check_calls())

@@ -2,17 +2,22 @@ import asyncio
 from pathlib import Path
 
 import httpx
+import pytest
 from mcp import ClientSession
 from mcp.client.streamable_http import streamable_http_client
 
+from quality_gate import mcp_server
 from quality_gate.core import validate_batch
-from quality_gate.mcp_server import server
+from quality_gate.mcp_server import ErrorCode, ToolFailure, server
 from quality_gate.models import BatchResult
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_streamable_http_batch_and_request_boundary() -> None:
+def test_streamable_http_batch_and_request_boundary(monkeypatch: pytest.MonkeyPatch) -> None:
+    def fail_unexpectedly(*args: object, **kwargs: object) -> BatchResult:
+        raise RuntimeError("Unexpected detail stays in server logs")
+
     async def check_transport() -> None:
         app = server.streamable_http_app()
         base_url = "http://127.0.0.1:8000"
@@ -32,6 +37,29 @@ def test_streamable_http_batch_and_request_boundary() -> None:
                 ClientSession(read, write) as client,
             ):
                 await client.initialize()
+                errors: list[tuple[dict[str, object], ErrorCode]] = [
+                    ({"confidence_threshold": 2}, "INVALID_THRESHOLD"),
+                    ({"batch_file": "missing.json"}, "INPUT_UNAVAILABLE"),
+                    (
+                        {"batch_file": "task_description/edge_cases/truncated.json"},
+                        "INVALID_BATCH_INPUT",
+                    ),
+                ]
+                for arguments, code in errors:
+                    invalid = await client.call_tool("validate_batch", arguments)
+                    assert not invalid.isError
+                    assert ToolFailure.model_validate(invalid.structuredContent).error.code == code
+
+                with monkeypatch.context() as patch:
+                    patch.setattr(mcp_server, "validate_batch", fail_unexpectedly)
+                    invalid = await client.call_tool("validate_batch", {})
+                assert not invalid.isError
+                assert invalid.structuredContent == {
+                    "error": {
+                        "code": "INTERNAL_ERROR",
+                        "message": "Batch validation failed unexpectedly.",
+                    }
+                }
                 result = await client.call_tool("validate_batch", {"confidence_threshold": 0.38})
                 assert not result.isError
                 expected = validate_batch(
