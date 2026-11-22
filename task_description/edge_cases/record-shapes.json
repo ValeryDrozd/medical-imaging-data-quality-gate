@@ -1,0 +1,78 @@
+{
+  "batch_id": "EDGE-RECORD-SHAPES",
+  "source": "Edge-case fixture derived from the supplied synthetic batch.",
+  "taxonomy_version": "1.2",
+  "record_count": 8,
+  "records": [
+    null,
+    [
+      "IMG-0001"
+    ],
+    "IMG-0001",
+    {},
+    {
+      "record_id": "   ",
+      "image_file": "images/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": []
+    },
+    {
+      "record_id": "SHAPE-CONTAINER",
+      "image_file": "images/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": {}
+    },
+    {
+      "record_id": "SHAPE-MIXED",
+      "image_file": "images/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": [
+        null,
+        7,
+        [],
+        {
+          "label": [],
+          "bbox": [
+            true,
+            0,
+            1,
+            1
+          ],
+          "confidence": true
+        },
+        {
+          "label": "nodule",
+          "bbox": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "record_id": "SHAPE-VALID-LAST",
+      "image_file": "images/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": []
+    }
+  ]
+}

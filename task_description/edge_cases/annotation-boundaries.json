@@ -1,0 +1,163 @@
+{
+  "batch_id": "EDGE-ANNOTATION-BOUNDARIES",
+  "source": "Edge-case fixture derived from the supplied synthetic batch.",
+  "taxonomy_version": "1.2",
+  "record_count": 7,
+  "records": [
+    {
+      "record_id": "ANN-EDGE",
+      "image_file": "images/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": [
+        {
+          "label": "nodule",
+          "bbox": [
+            0.1,
+            0.1,
+            1023.9,
+            1023.9
+          ],
+          "confidence": 0.5
+        }
+      ]
+    },
+    {
+      "record_id": "ANN-MIN",
+      "image_file": "images/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": [
+        {
+          "label": "nodule",
+          "bbox": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "confidence": 0
+        }
+      ]
+    },
+    {
+      "record_id": "ANN-MAX",
+      "image_file": "images/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": [
+        {
+          "label": "mass",
+          "bbox": [
+            0,
+            0,
+            1024,
+            1024
+          ],
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "record_id": "ANN-EMPTY",
+      "image_file": "images/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": []
+    },
+    {
+      "record_id": "ANN-MULTI",
+      "image_file": "images/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": [
+        {
+          "label": "lesion",
+          "bbox": [
+            0,
+            0,
+            1
+          ],
+          "confidence": 0.3
+        },
+        {
+          "label": "Nodule",
+          "bbox": [
+            -1,
+            1024,
+            2,
+            1
+          ],
+          "confidence": "0.50"
+        },
+        {
+          "label": "nodule",
+          "bbox": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "record_id": "ANN-OVERFLOW",
+      "image_file": "images/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": [
+        {
+          "label": "nodule",
+          "bbox": [
+            0,
+            1024,
+            1e400,
+            1
+          ],
+          "confidence": 1e400
+        }
+      ]
+    },
+    {
+      "record_id": "ANN-ZERO-BOX",
+      "image_file": "images/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": [
+        {
+          "label": "nodule",
+          "bbox": [
+            0,
+            0,
+            0,
+            -1
+          ],
+          "confidence": 1
+        }
+      ]
+    }
+  ]
+}

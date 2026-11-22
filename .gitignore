@@ -11,4 +11,7 @@ prompt.md
 task_description/*
 !task_description/batch.json
 !task_description/taxonomy.json
+!task_description/edge_cases/
+task_description/edge_cases/*
+!task_description/edge_cases/*.json
 /results.json

@@ -3,6 +3,7 @@ import hashlib
 import json
 import subprocess
 import sys
+import warnings
 from collections.abc import Callable
 from pathlib import Path
 
@@ -143,7 +144,12 @@ def test_invalid_batch_inputs(write_batch: Callable[..., Path]) -> None:
         validate_batch(write_batch([]), TAXONOMY, confidence_threshold=1.1)
 
 
-def test_file_mode(sample_record: Record, write_batch: Callable[..., Path], tmp_path: Path) -> None:
+def test_file_mode(
+    sample_record: Record,
+    write_batch: Callable[..., Path],
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
     image_file = tmp_path / "test.png"
     with Image.new("L", (2, 2)) as image:
         image.save(image_file)
@@ -159,10 +165,26 @@ def test_file_mode(sample_record: Record, write_batch: Callable[..., Path], tmp_
         annotations=[],
     )
     other = sample_record | {"record_id": "MISSING", "image_file": "missing.png"}
-    result = validate_batch(write_batch([sample_record, other]), TAXONOMY)
+    batch_file = write_batch([sample_record, other])
+    result = validate_batch(batch_file, TAXONOMY)
     assert result.mode == "files"
     assert result.records[0].status == "PASS"
     assert result.records[1].reasons[0].code == "IMAGE_FILE_MISSING"
+
+    alias_dir = tmp_path / "aliases"
+    alias_dir.mkdir()
+    symlink = alias_dir / "linked-batch.json"
+    symlink.symlink_to(batch_file)
+    assert validate_batch(symlink, TAXONOMY) == result
+
+    with monkeypatch.context() as limits:
+        limits.setattr(Image, "MAX_IMAGE_PIXELS", 3)
+        for action in ("error", "ignore"):
+            with warnings.catch_warnings():
+                warnings.simplefilter(action, Image.DecompressionBombWarning)
+                result = validate_batch(batch_file, TAXONOMY)
+            assert result.records[0].reasons[0].code == "IMAGE_FILE_TOO_LARGE"
+            assert result.records[1].reasons[0].code == "IMAGE_FILE_MISSING"
 
     wrong_dimensions = sample_record | {"image_width": 3}
     result = validate_batch(write_batch([wrong_dimensions]), TAXONOMY)
@@ -174,6 +196,25 @@ def test_file_mode(sample_record: Record, write_batch: Callable[..., Path], tmp_
         "FILE_SIZE_MISMATCH",
         "FILE_SHA256_MISMATCH",
         "IMAGE_FILE_CORRUPT",
+    ]
+
+    for damaged in (data[:-1], data[:-1] + bytes([data[-1] ^ 1]), data + data[-12:]):
+        image_file.write_bytes(damaged)
+        damaged_digest = hashlib.sha256(damaged).hexdigest()
+        matching_declarations = sample_record | {
+            "file_size_bytes": len(damaged),
+            "sha256_expected": damaged_digest,
+            "sha256_received": damaged_digest,
+        }
+        result = validate_batch(write_batch([matching_declarations]), TAXONOMY)
+        assert [reason.code for reason in result.records[0].reasons] == ["IMAGE_FILE_CORRUPT"]
+
+    image_file.write_bytes(b"")
+    result = validate_batch(write_batch([sample_record | {"file_size_bytes": False}]), TAXONOMY)
+    assert [reason.code for reason in result.records[0].reasons] == [
+        "FILE_SIZE_INVALID",
+        "FILE_SHA256_MISMATCH",
+        "FILE_EMPTY",
     ]
 
     image_file.unlink()

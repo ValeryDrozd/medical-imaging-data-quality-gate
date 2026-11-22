@@ -1,8 +1,26 @@
 # Run the MCP server
 
-The server exposes the `validate_batch` tool over stdio. It uses the same validation rules and report format as the batch command.
+The server exposes `validate_batch` over stdio and Streamable HTTP. Both use the same validation rules and report format as the batch command.
 
-## Local setup
+## Docker on this machine
+
+From the repository root, build and start the local MCP service.
+
+```sh
+docker compose up -d --build mcp
+```
+
+The service publishes `http://127.0.0.1:8000/mcp` on the host loopback and mounts the supplied synthetic manifests and edge-case fixtures read-only. On Docker Desktop, set `DOCKER_CONTEXT=desktop-linux` if that is your active Docker context.
+
+Add the URL in Codex Settings > MCP servers with the Streamable HTTP transport, or run this command.
+
+```sh
+codex mcp add quality_gate_docker --url http://127.0.0.1:8000/mcp
+```
+
+Restart Codex and check `/mcp` for `quality_gate_docker`. Run `docker compose stop mcp` to stop the service. [Codex MCP configuration](https://learn.chatgpt.com/docs/extend/mcp?surface=cli#configure-with-the-cli)
+
+## Local stdio setup
 
 From the repository root, create a virtual environment and install the project.
 
@@ -53,8 +71,8 @@ Use `{}` for the supplied batch with the default threshold of **0.50**. To overr
 {"confidence_threshold": 0.38}
 ```
 
-In Codex, ask “Call the `quality_gate` server’s `validate_batch` tool with `confidence_threshold` set to 0.38 and report the status counts.” For the deployed setup, name `quality_gate_remote` instead.
+In Codex, ask “Call the `quality_gate_docker` server’s `validate_batch` tool with `confidence_threshold` set to 0.38 and report the status counts.” Use `quality_gate` for local stdio or `quality_gate_remote` for SSH.
 
 The response includes the applied `confidence_threshold`, `summary` and per-record `records`. At 0.50, `IMG-0009` needs review. At 0.38, its confidence equals the threshold and it passes, giving **37 PASS, 13 FAIL and 0 NEEDS_REVIEW**. A later call with `{}` uses 0.50 again.
 
-Optional arguments are `batch_file` (default `task_description/batch.json`), `taxonomy_file` (default `task_description/taxonomy.json`) and `mode` (`auto`, `metadata_only` or `files`). File paths refer to the server’s working directory. In Docker, place alternate synthetic JSON files in the mounted `task_description` directory.
+Optional arguments are `batch_file` (default `task_description/batch.json`), `taxonomy_file` (default `task_description/taxonomy.json`) and `mode` (`auto`, `metadata_only` or `files`). File paths refer to the server’s working directory. For local Docker HTTP, use `task_description/edge_cases/annotation-boundaries.json` to try an edge-case batch.

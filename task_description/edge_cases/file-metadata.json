@@ -1,0 +1,108 @@
+{
+  "batch_id": "EDGE-FILE-METADATA",
+  "source": "Edge-case fixture derived from the supplied synthetic batch.",
+  "taxonomy_version": "1.2",
+  "record_count": 10,
+  "records": [
+    {
+      "record_id": "META-MISSING",
+      "image_file": null,
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": null,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": null,
+      "annotations": []
+    },
+    {
+      "record_id": "META-ESCAPE",
+      "image_file": "../batch.json",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": []
+    },
+    {
+      "record_id": "META-LONG",
+      "image_file": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": []
+    },
+    {
+      "record_id": "META-DIRECTORY",
+      "image_file": ".",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": []
+    },
+    {
+      "record_id": "META-ABSOLUTE",
+      "image_file": "/synthetic/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": []
+    },
+    {
+      "record_id": "META-TYPES",
+      "image_file": "images/IMG-0001.png",
+      "image_width": false,
+      "image_height": 0,
+      "file_size_bytes": -1,
+      "sha256_expected": "abc",
+      "sha256_received": 42,
+      "annotations": []
+    },
+    {
+      "record_id": "META-DIGEST",
+      "image_file": "images/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 0,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "bcbf3a3ccddf65536ae473debdac0ec8006e75a27ffa6e2aa05c5953a889dc42",
+      "annotations": []
+    },
+    {
+      "record_id": "META-MIXED-CASE",
+      "image_file": "images/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503DC2321148B120060C1E39B46326669AAB8D9E952CB047D103F82E1169",
+      "annotations": []
+    },
+    {
+      "record_id": "META-NUL",
+      "image_file": "\u0000example.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": []
+    },
+    {
+      "record_id": "META-VALID-LAST",
+      "image_file": "images/IMG-0001.png",
+      "image_width": 1024,
+      "image_height": 1024,
+      "file_size_bytes": 2389274,
+      "sha256_expected": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "sha256_received": "6864503dc2321148b120060c1e39b46326669aab8d9e952cb047d103f82e1169",
+      "annotations": []
+    }
+  ]
+}
